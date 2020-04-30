@@ -6,6 +6,7 @@ export class HomeScreen extends Component {
     render() {
         return (
             <div className='home-container'>
+                <h1>Home Screen</h1>
                 <Link to={{
                     pathname:'/playground', state: {gg:0}
                 }}>
