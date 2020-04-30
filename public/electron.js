@@ -8,7 +8,8 @@ const isDev = require('electron-is-dev');
 let mainWindow
 
 function createWindow () {
-  const { width, height } = screen.getPrimaryDisplay().workAreaSize
+  // Get maximized window size
+  const { width, height } = screen.getPrimaryDisplay().workAreaSize;
 
   // Create the browser window.
   mainWindow = new BrowserWindow({

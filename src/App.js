@@ -1,5 +1,7 @@
 import React,{ Component } from 'react'
-import Playground from './Component/Playground'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Playground from './component/playground/Playground'
+import HomeScreen from './component/startup/HomeScreen'
 
 import bg from './img/background1.jpg'
 
@@ -12,11 +14,14 @@ import './cgame.css'
 class App extends Component{
   render(){
     return (
-        <div className='background'>
-          {/* <img src={bg} style={{width:'100%', height:'100%'}} /> */}
-          {/* <Playground />   */}
-
-        </div>
+        <BrowserRouter>
+            <div>
+              <Switch>
+                <Route exact path='/' component={HomeScreen} />
+                <Route path='/playground' component={Playground} />
+              </Switch>
+            </div>
+        </BrowserRouter>
     );
   }
 }
