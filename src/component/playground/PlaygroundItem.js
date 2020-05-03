@@ -23,7 +23,8 @@ export class PlaygroundItem extends Component {
             // width: 40 + 'px',
             // height: 40 + 'px',
             // marginLeft: 1 + 'px',
-            backgroundImage: `url(${grass})`
+            backgroundImage: `url(${grass})`,
+            backgroundSize: "cover"
         }
         return bg
     }

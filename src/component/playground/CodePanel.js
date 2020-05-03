@@ -14,7 +14,7 @@ export class CodePanel extends Component {
         return (
             <div className='code-panel'>
                 <Resizable className='level-guide'
-                    defaultSize={{width:323, height:250}}
+                    defaultSize={{width:416, height:250}}
                     minHeight={125}
                     maxHeight={375}    
                     enable={{ top:false, right:false, bottom:true, left:false, 

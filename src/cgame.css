@@ -36,7 +36,7 @@ html,body{
     width: 620px;
     height: 420px;
     top: 24%;
-    left: 16%;
+    left: 10%;
 }
 .playground-wrapper{
     display: inline-block;
@@ -66,16 +66,16 @@ html,body{
     top: 10px;
 }
 .level-name{
-    height: 50px;
+    height: 50%;
 }
 .level-progress{
-    height: 50px;
+    height: 50%;
 }
 .code-panel{
     position: relative;
-    width: 323px;
+    width: 416px;
     height: 500px;
-    left: 68%;
+    left: 61vw;
 }
 .level-guide{
     height: 50%;
@@ -87,4 +87,10 @@ html,body{
     min-height: 25%;
     max-height: 75%;
     border:solid;
+}
+.react-codemirror2 {
+    height: 100%;
+}
+.CodeMirror {
+height: 100% !important;
 }
