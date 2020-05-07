@@ -94,3 +94,18 @@ html,body{
 .CodeMirror {
 height: 100% !important;
 }
+.run-code-button-container{
+    height: 24px;
+    display: inline-block;
+    width: 99%;
+    position: absolute;
+    bottom: -2px;
+    z-index: 9;
+    background-color: gainsboro;
+}
+.run-code-button{
+    height: 20px;
+    width: 24%;
+    position: relative;
+    left: 73%;
+}

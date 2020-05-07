@@ -10,6 +10,7 @@
     "codemirror": "^5.53.2",
     "cross-env": "^7.0.2",
     "electron-is-dev": "^1.2.0",
+    "python-shell": "^2.0.0",
     "re-resizable": "^6.3.2",
     "react": "^16.13.1",
     "react-codemirror2": "^7.1.0",
