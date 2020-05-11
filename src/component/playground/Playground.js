@@ -33,7 +33,7 @@ export class Playground extends Component {
         for(let i = 0; i < PlaygroundProperty.ROW; i++){
             pg.push(
                 <PlaygroundRow 
-                row={i} 
+                key={i} 
                 playgroudBoardRow={this.state.playgroudBoard[i]}
                  
                 />

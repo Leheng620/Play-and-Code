@@ -19,7 +19,8 @@ export class CodeContainer extends Component {
         // This event listener is going to read the returned value from 
         // the background process which generates the output after running
         // the python script just sent.
-		ipcRenderer.on('RETURNED-FROM-PYTHON-SCRIPT', this.handlePyscriptReturn);   
+        ipcRenderer.on('RETURNED-FROM-PYTHON-SCRIPT', this.handlePyscriptReturn);
+        this.setState({code: 'move_forward()\nmove_forward()\nturn_left()\nturn_right()'})
     }
     
     /* 
@@ -29,6 +30,9 @@ export class CodeContainer extends Component {
         console.log(args)
     }
 
+    /*
+        It sends the code to background process
+    */
     sendMessage = (msg) =>{
         // Send the script to background process via main process
         // This is going to be the code that player typed in so that
@@ -37,6 +41,9 @@ export class CodeContainer extends Component {
 		ipcRenderer.send('START_BACKGROUND_VIA_MAIN', msg);
     }
 
+    /*
+        Event handler when user presses run.
+    */
     runCode = () =>{
         let msg = {
             args: [],
@@ -55,7 +62,7 @@ export class CodeContainer extends Component {
                     </button>
                 </div>
                 <CodeMirror className='default'
-                value=''
+                value={this.state.code}
                 options={{
                   mode: 'python',
                   theme: 'eclipse',

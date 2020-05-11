@@ -9,7 +9,10 @@ export class PlaygroundItem extends Component {
     // Get the character on the grid
     getSprite = () =>{
         switch(this.props.item){
-            case 1: return (<LittleMan />)
+            case -1: return (<LittleMan direction={'face-right'} />)
+            case -2: return (<LittleMan direction={''} />)
+            case -3: return (<LittleMan direction={'face-left'} />)
+            case -4: return (<LittleMan direction={'face-up'} />)
         }
     }
 

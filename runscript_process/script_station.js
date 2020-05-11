@@ -10,13 +10,11 @@ const { PythonShell } = require('python-shell');
 const { ipcRenderer } = require('electron');
 const path = require('path');
 
-// Global variable for storing python shell instance
-let pyshell = null
+// // Global variable for storing python shell instance
+// let pyshell = null
 
 // This only calls once as the background process is being created
-if(pyshell == null){
-    ipcRenderer.send('BACKGROUND_READY');
-}
+ipcRenderer.send('BACKGROUND_READY');
 
 /**
  * Initialize the python shell using arguments sent from UI process
@@ -26,15 +24,16 @@ if(pyshell == null){
  */
 function initShell(data){
     const { args } = data;
-    pyshell = new PythonShell(path.join(__dirname, '/../python_script/factorial.py'), {
+    let pyshell = new PythonShell(path.join(__dirname, '/../python_script/main.py'), {
         pythonPath: 'python',
         args: args,
         mode:'text',
 
     });
-    
+    return pyshell
 }
 
+let result
 /**
  * Handler for receiving data from the UI process via the main process.
  * It will pass arguments to the initShell(args) function to initialize
@@ -45,19 +44,38 @@ function initShell(data){
  * @param {Object} data The data of python script
  */
 function processScript(event, data){
-    initShell(data)
-    pyshell.send(data.code);
+    let pyshell = initShell(data)
+    pyshell.send(data.code); // parse code into code_runner.py using parse_lines.py
     console.log(data)
+    result = ''
     pyshell.on('message', function(results) {
+        result += results
         console.log(results)
-        ipcRenderer.send('RETURN-FROM-BACKGROUND', { message: results });
+        // ipcRenderer.send('RETURN-FROM-BACKGROUND', { message: results });
     });
     // end the input stream and allow the process to exit
     pyshell.end(function (err,code,signal) {
-        if (err) throw err;
-        console.log('The exit code was: ' + code);
-        console.log('The exit signal was: ' + signal);
-        console.log('finished');
+        // console.log('The exit code was: ' + code);
+        // console.log('The exit signal was: ' + signal);
+        // console.log('finished');
+        // console.log(result)
+        if (err){
+            ipcRenderer.send('RETURN-FROM-BACKGROUND', { message: err.message, error: true });
+        }else{
+            ipcRenderer.send('RETURN-FROM-BACKGROUND', { message: result, error: false });
+        }
+
+        // Run the and generates a set of encoded command for the character to move
+        // PythonShell.run(path.join(__dirname, '/../python_script/code_runner.py'), {
+        //     pythonPath: 'python',
+        //     mode:'text',
+        // },function (err, output) {
+        //     if (err) console.log(err)
+        //     console.log(output);
+        //     ipcRenderer.send('RETURN-FROM-BACKGROUND', { message: output });
+        // })
+
+        // ipcRenderer.send('RETURN-FROM-BACKGROUND', { message: result });
     });
 }
 

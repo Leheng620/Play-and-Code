@@ -10,7 +10,7 @@ export class LittleMan extends Component {
                 <img className="little-man-shadow pixelart" 
                     src={littleManShadow} 
                      />
-                <img className="little-man-spritesheet pixelart face-right" 
+                <img className={"little-man-spritesheet pixelart " + this.props.direction }
                     src={littleMan} 
                      />
 

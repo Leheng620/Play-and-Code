@@ -120,7 +120,7 @@ ipcMain.on('START_BACKGROUND_VIA_MAIN', createProcess);
 // This event listener will listen for data being sent back
 // from the background renderer process, then return the result to the UI(React) process
 ipcMain.on('RETURN-FROM-BACKGROUND', (event, args) => {
-	mainWindow.webContents.send('RETURNED-FROM-PYTHON-SCRIPT', args.message);
+	mainWindow.webContents.send('RETURNED-FROM-PYTHON-SCRIPT', args);
 });
 
 // This listener only listens one time when the background process is first created

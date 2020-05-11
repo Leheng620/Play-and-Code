@@ -9,7 +9,7 @@ export class PlaygroundRow extends Component {
         let pg = []
         for(let i = 0; i < PlaygroundProperty.COL; i++){
             pg.push(
-                <PlaygroundItem col={i} item={this.props.playgroudBoardRow[i]} />
+                <PlaygroundItem key={i} item={this.props.playgroudBoardRow[i]} />
             )
         }
         return pg;
