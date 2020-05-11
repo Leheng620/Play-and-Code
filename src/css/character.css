@@ -46,3 +46,10 @@
        transform: translate3d(-100%,0,0)
     }
  }
+
+ /* mushroom */
+ .mushroom{
+    position: absolute;
+    margin-top: 4px;
+    margin-left: 4px;
+ }

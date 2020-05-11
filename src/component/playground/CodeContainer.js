@@ -22,7 +22,7 @@ export class CodeContainer extends Component {
         // the python script just sent.
         ipcRenderer.on('RETURNED-FROM-PYTHON-SCRIPT', this.handlePyscriptReturn);
         this.setState({code: 'move_forward()\nmove_forward()\nturn_left()\nturn_right()', 
-            defaultCode: 'move_forward()\nmove_forward()\nturn_left()\nturn_right()'
+            defaultCode: 'move_forward()\npickup()'
         })
     }
     

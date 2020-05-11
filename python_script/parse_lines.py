@@ -25,7 +25,7 @@ def main(data):
 	for line in data:
 		output.write('\t'+line+'\n')
 
-	output.write('\treturn out')
+	output.write('\treturn play_and_code_spring2020_cse323_final_project')
 	output.close()
 	read_module.close()
 

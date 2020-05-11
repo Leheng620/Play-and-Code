@@ -57,6 +57,7 @@ html,body{
     height: 40px;
     margin-left: 1px;
     /* background-image: url('./component/sprite/grass.jpg'); */
+    background-size: cover;
 }
 .playground-header{
     position: relative;

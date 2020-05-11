@@ -1,13 +1,17 @@
-out = ''
+play_and_code_spring2020_cse323_final_project = ''
 
 def move_forward():
-    global out
-    out += 'F'
+    global play_and_code_spring2020_cse323_final_project
+    play_and_code_spring2020_cse323_final_project += 'F'
 
 def turn_left():
-    global out
-    out += 'L'
+    global play_and_code_spring2020_cse323_final_project
+    play_and_code_spring2020_cse323_final_project += 'L'
 
 def turn_right():
-    global out
-    out += 'R'
+    global play_and_code_spring2020_cse323_final_project
+    play_and_code_spring2020_cse323_final_project += 'R'
+
+def pickup():
+    global play_and_code_spring2020_cse323_final_project
+    play_and_code_spring2020_cse323_final_project += 'P'
