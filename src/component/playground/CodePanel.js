@@ -29,7 +29,9 @@ export class CodePanel extends Component {
 
                 </Resizable>
 
-                <CodeContaienr height={this.state.codeContainerHeight} />
+                <CodeContaienr height={this.state.codeContainerHeight} parseScript={this.props.parseScript}
+                    
+                />
             </div>
         )
     }

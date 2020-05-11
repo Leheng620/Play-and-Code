@@ -15,7 +15,7 @@ def turn_right():
 def run():
 	move_forward()
 	move_forward()
-	turn_left()a
+	turn_left()
 	turn_right()
 	
 	return out

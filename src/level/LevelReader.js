@@ -12,4 +12,8 @@ export const board =
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
 ]
-export default board;
+export const playerInfo = {
+    x : 0,
+    y : 0,
+    direction : -1
+}

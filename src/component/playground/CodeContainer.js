@@ -13,6 +13,7 @@ export class CodeContainer extends Component {
 
     state = {
         code: "",
+        defaultCode: ""
     }
 
     componentDidMount() {
@@ -20,14 +21,16 @@ export class CodeContainer extends Component {
         // the background process which generates the output after running
         // the python script just sent.
         ipcRenderer.on('RETURNED-FROM-PYTHON-SCRIPT', this.handlePyscriptReturn);
-        this.setState({code: 'move_forward()\nmove_forward()\nturn_left()\nturn_right()'})
+        this.setState({code: 'move_forward()\nmove_forward()\nturn_left()\nturn_right()', 
+            defaultCode: 'move_forward()\nmove_forward()\nturn_left()\nturn_right()'
+        })
     }
     
     /* 
         This function handles the result returned by background process
     */ 
     handlePyscriptReturn = (event, args) =>{
-        console.log(args)
+        this.props.parseScript(event, args)
     }
 
     /*
@@ -62,7 +65,7 @@ export class CodeContainer extends Component {
                     </button>
                 </div>
                 <CodeMirror className='default'
-                value={this.state.code}
+                value={this.state.defaultCode}
                 options={{
                   mode: 'python',
                   theme: 'eclipse',
@@ -73,10 +76,11 @@ export class CodeContainer extends Component {
                   indentUnit: 4
                 }}
                 onChange={(editor, data, value) => {
+
                     // console.log(editor)
                     // console.log(data)
                     // console.log(value)
-                    this.setState({code: value})
+                    this.setState({code:value})
                 }}
                 >
 
