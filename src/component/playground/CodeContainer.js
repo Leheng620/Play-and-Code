@@ -11,19 +11,12 @@ const { ipcRenderer } = electron;
 
 export class CodeContainer extends Component {
 
-    state = {
-        code: "",
-        defaultCode: ""
-    }
 
     componentDidMount() {
         // This event listener is going to read the returned value from 
         // the background process which generates the output after running
         // the python script just sent.
         ipcRenderer.on('RETURNED-FROM-PYTHON-SCRIPT', this.handlePyscriptReturn);
-        this.setState({code: 'move_forward()\nmove_forward()\nturn_left()\nturn_right()', 
-            defaultCode: 'move_forward()\npickup()'
-        })
     }
     
     /* 
@@ -50,7 +43,7 @@ export class CodeContainer extends Component {
     runCode = () =>{
         let msg = {
             args: [],
-            code: this.state.code,
+            code: this.props.code,
         }
         console.log(msg)
         this.sendMessage(msg);
@@ -65,7 +58,7 @@ export class CodeContainer extends Component {
                     </button>
                 </div>
                 <CodeMirror className='default'
-                value={this.state.defaultCode}
+                value={this.props.defaultCode}
                 options={{
                   mode: 'python',
                   theme: 'eclipse',
@@ -75,13 +68,7 @@ export class CodeContainer extends Component {
                   indentWithTabs: true,
                   indentUnit: 4
                 }}
-                onChange={(editor, data, value) => {
-
-                    // console.log(editor)
-                    // console.log(data)
-                    // console.log(value)
-                    this.setState({code:value})
-                }}
+                onChange={(event, editor, value)=>{this.props.processEnterCode(event, editor, value)}}
                 >
 
                 </CodeMirror>

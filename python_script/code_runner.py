@@ -17,8 +17,7 @@ def pickup():
     play_and_code_spring2020_cse323_final_project += 'P'
 
 def run():
-	pickup()
 	move_forward()
-	pickup()
+	
 	
 	return play_and_code_spring2020_cse323_final_project

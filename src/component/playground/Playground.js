@@ -5,16 +5,22 @@ import { PlaygroundItem } from "./PlaygroundItem";
 import { PlaygroundRow } from "./PlaygroundRow";
 import LittleMan from '../character/LittleMan'
 import CodePanel from './CodePanel'
-import * as tempBoard from '../../level/LevelReader'
+import tempBoard from '../../level/LevelReader'
+
+const electron = window.require('electron');
+const { ipcRenderer } = electron;
 
 function LevelHeader(props){
     return(
         <div className='playground-header'>
             <div className='level-name'>
-
+                {/* {props.success ? "Fuck yea" : ""}
+                {props.failed.taskFailed ? "Fuck IDIOT" : ""}
+                {props.failed.error ? props.failed.error : ""} */}
+                {props.title}
             </div>
             <div className='level-progress'>
-
+                why
             </div>
         </div>
     )
@@ -24,20 +30,39 @@ export class Playground extends Component {
 
     // a playgroundBoard is 15 x 10 matrix, each represent a grid
     state = {
-        playgroudBoard : tempBoard.board,
+        playgroudBoard : tempBoard(0).playgroundBoard,
         playerx: 0, // initial position of the character
         playery: 0,
         direction: -1, // initial facing direction of character
         interval: null,
-        speed: 0.6
+        speed: 0.6,
+        target: 2, // the target amount of mushroom
+        success : false, // indicate if level successfully complete
+        failed: {taskFailed: false, error: ""}, // indicate if current attempt has failed
+        currentLevel: 0,
+        currentLevelLimit: 0,
+        code: "",
+        defaultCode: "",
+        title: "",
+        guide: "",
     }
 
     componentDidMount = () =>{
+        // console.log(this.props)
+        const data = this.props.location.state.store
         this.setState({
-            playgroudBoard: JSON.parse(JSON.stringify(tempBoard.board)), 
-            playerx: tempBoard.playerInfo.x, 
-            playery: tempBoard.playerInfo.y, 
-            direction: tempBoard.playerInfo.direction
+            playgroudBoard: JSON.parse(JSON.stringify(tempBoard(data.currentLevel).playgroundBoard)), 
+            playerx: tempBoard(data.currentLevel).playerInfo.x, 
+            playery: tempBoard(data.currentLevel).playerInfo.y, 
+            direction: tempBoard(data.currentLevel).playerInfo.direction,
+            target : tempBoard(data.currentLevel).levelMission.target,
+            title : tempBoard(data.currentLevel).title,
+            guide : tempBoard(data.currentLevel).guide,
+            currentLevelLimit: data.levels.length,
+            success: false,
+            failed: {taskFailed: false, error: ""},
+            code: data.levels[0].code,
+            defaultCode: data.levels[0].code,
         })
     }
 
@@ -73,17 +98,33 @@ export class Playground extends Component {
     }
 
     parseScript = (e, args) =>{
+        const data = this.props.location.state.store
         this.setState({
-            playgroudBoard: JSON.parse(JSON.stringify(tempBoard.board)), 
-            playerx: tempBoard.playerInfo.x, 
-            playery: tempBoard.playerInfo.y, 
-            direction: tempBoard.playerInfo.direction
+            playgroudBoard: JSON.parse(JSON.stringify(tempBoard(data.currentLevel).playgroundBoard)), 
+            playerx: tempBoard(data.currentLevel).playerInfo.x, 
+            playery: tempBoard(data.currentLevel).playerInfo.y, 
+            direction: tempBoard(data.currentLevel).playerInfo.direction,
+            target : tempBoard(data.currentLevel).levelMission.target,
+            success : false,
+            failed: {
+                taskFailed:false,
+                error: ""
+            }
         }, ()=>{
             let code = args.message; // encoded message of the character movement
+            if(args.error){
+                this.setState({failed: {taskFailed: false, error: code}})
+                return;
+            }
             let i = 0;
             let speed = this.state.speed;
             let interval = setInterval(()=>{
                 if(i === code.length){
+                    if(this.state.target === 0){
+                        this.setState({success: true})
+                    }else{
+                        this.setState({failed: {taskFailed:true, error:false}})
+                    }
                     clearInterval(interval);
                 }
                 // this.setState({board:state[i]},()=>{i++})
@@ -138,6 +179,7 @@ export class Playground extends Component {
         }
         if(this.isValidStep(nx, ny)){
             let board = this.state.playgroudBoard;
+            let target = this.state.target
             if(move){
                 if(board[x][y] < -4){
                     board[x][y] = -5
@@ -147,6 +189,7 @@ export class Playground extends Component {
             }
             if(pickup && board[nx][ny] <= -5){
                 board[nx][ny]-=5;
+                target --;
             }
             nd = this.containMushroom(board, nx, ny, nd);
             console.log(nx, ny, nd, code)
@@ -155,7 +198,8 @@ export class Playground extends Component {
                 playerx: nx,
                 playery: ny,
                 playgroudBoard: board,
-                direction: nd
+                direction: nd,
+                target : target
             })
         }else{
             return this.state
@@ -201,21 +245,59 @@ export class Playground extends Component {
         return pg;
     }
 
+    processEnterCode = (editor, data, value) => {
+
+        // console.log(editor)
+        // console.log(data)
+        // console.log(value)
+        this.setState({code:value}, ()=>{
+            this.storeData(this.state.code, null, null)
+        })
+    }
+
+    storeData = (codeChange, currentLevelChange, playerNameChange) =>{
+        const data = this.props.location.state.store
+        if(codeChange){
+            data.levels[data.currentLevel].code = codeChange
+        }
+        if(currentLevelChange){
+            data.currentLevel = currentLevelChange
+        }
+        if(playerNameChange){
+            data.playerName = playerNameChange
+        }
+        ipcRenderer.send('SAVE-DATA-REQUEST-FROM-RENDERER', data);
+    }
+
     render() {
+        // console.log(this.props)
+        // console.log(this.state.code)
         return (
         <div className='background'>
           {/* <img src={bg} style={{width:'100%', height:'100%'}} /> */}
+            <div className='top-right'>
+                <button className='level-navigator top-right-item'>previous</button>
+                <div className='menu-tricker top-right-item'>menu</div>
+                <button className='level-navigator top-right-item'>next</button>
+            </div>
+
+            <div className='menu'></div>
             
-            <LevelHeader />
+            <LevelHeader title={this.state.title} />
             
-            <CodePanel parseScript={this.parseScript} />
+            <CodePanel parseScript={this.parseScript} processEnterCode={this.processEnterCode}
+                defaultCode={this.state.defaultCode} code={this.state.code} guide={this.state.guide}
+            />
+
+            <div></div>
 
             <div className='playground-container'>
                 <div className='playground-wrapper'>
                     {this.getPlaygroundItemRow()}
                 </div>
                 {/* <Link to={'/'}>aaa</Link> */}
-                <button onClick={()=>{this.props.history.goBack()}}>aaaa</button>
+                {/* <button onClick={()=>{this.props.history.goBack()}}>aaaa</button> */}
+                <Link to={'/'}>aaa</Link>
             </div>
         </div>
         )

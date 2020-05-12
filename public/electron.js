@@ -66,7 +66,7 @@ app.on('activate', function () {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-/* --------------------Start Background Process-------s------------- */
+/* --------------------Start Background Run Script Process-------------------- */
 // temporary variable to store data while background
 // process is ready to start processing
 let data = {
@@ -127,3 +127,48 @@ ipcMain.on('RETURN-FROM-BACKGROUND', (event, args) => {
 ipcMain.on('BACKGROUND_READY', (event, args) => {
 	event.reply('START_PROCESSING', data);
 });
+
+
+/* --------------------Start Background Localstorage Process-------------------- */
+let localStorageWindow = null
+function createLocalStorageProcess(){
+   // create a new hidden window/process
+   if(localStorageWindow == null){
+    const backgroundFileUrl = url.format({
+      pathname: path.join(__dirname, `/../localstorage_process/localstorage.html`),
+      protocol: 'file:',
+      slashes: true,
+    });
+    localStorageWindow = new BrowserWindow({
+      show: false,
+      webPreferences: {
+        nodeIntegration: true,
+      },
+    });
+    localStorageWindow.loadURL(backgroundFileUrl);
+  
+    localStorageWindow.webContents.openDevTools();
+  
+    localStorageWindow.on('closed', () => {
+      localStorageWindow = null;
+    });
+  
+  }else{
+    // if process has created, send data to the background process
+    localStorageWindow.webContents.send('START-PROCESSING-LOCALSTORAGE');
+  }
+}
+ipcMain.on('START_LOCALSTORAGE_VIA_MAIN', createLocalStorageProcess)
+
+ipcMain.on('LOCALSTORAGE-READY', (event)=>{
+    event.reply('START-PROCESSING-LOCALSTORAGE')
+})
+
+ipcMain.on('RETURN-FROM-LOCALSTORAGE', (event, args)=>{
+    mainWindow.webContents.send('RETURN-FROM-LOCALSTORAGE-PROCESS',args)
+})
+
+function saveData(event, args){
+    localStorageWindow.webContents.send('SAVE-DATA-REQUEST-TO-LOCAL-STORAGE', args)
+}
+ipcMain.on('SAVE-DATA-REQUEST-FROM-RENDERER', saveData);

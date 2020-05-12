@@ -26,11 +26,14 @@ export class CodePanel extends Component {
                         this.setState({defaultHeight: this.state.codeContainerHeight})
                     }}
                     >
-
+                        <p className='guide-content'>
+                            {this.props.guide}
+                        </p>
                 </Resizable>
 
                 <CodeContaienr height={this.state.codeContainerHeight} parseScript={this.props.parseScript}
-                    
+                    processEnterCode={this.props.processEnterCode} defaultCode={this.props.defaultCode}
+                    code={this.props.code}
                 />
             </div>
         )
