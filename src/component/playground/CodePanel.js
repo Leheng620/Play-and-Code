@@ -33,7 +33,7 @@ export class CodePanel extends Component {
 
                 <CodeContaienr height={this.state.codeContainerHeight} parseScript={this.props.parseScript}
                     processEnterCode={this.props.processEnterCode} defaultCode={this.props.defaultCode}
-                    code={this.props.code}
+                    code={this.props.code} doors={this.props.doors} randomizeDoor={this.props.randomizeDoor}
                 />
             </div>
         )

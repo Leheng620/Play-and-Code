@@ -19,11 +19,16 @@ def main(data):
 	for line in read_module:
 		output.write(line)
 
-	# output.write('from format_output import *')
-	output.write('\n\ndef run():\n')
 
+	ind = 0
 	for line in data:
-		output.write('\t'+line+'\n')
+		if ind == 0:
+			output.write('doors = ['+line+']\n')
+			# output.write('from format_output import *')
+			output.write('\n\ndef run():\n')
+		elif ind != 1:
+			output.write('\t'+line+'\n')
+		ind+=1
 
 	output.write('\treturn play_and_code_spring2020_cse323_final_project')
 	output.close()

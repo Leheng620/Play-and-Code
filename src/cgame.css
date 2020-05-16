@@ -10,7 +10,11 @@ button {
     border-width: 2px;
     border-color: #e89a3e;
     border-radius: 12px;
- }
+    cursor: pointer;
+}
+button:active{
+    transform: translateY(0.5px);
+}
 
  /* width */
 ::-webkit-scrollbar {
@@ -38,6 +42,81 @@ button {
     position: absolute;
     height: 100vh;
     width: 100vw;
+    background: url("./img/background1.jpg") scroll;
+    background-size: cover;
+}
+.home-menu{
+    position: absolute;
+    width: 45%;
+    height: 67%;
+    left: 28%;
+    z-index: 10;
+    top: 25%;
+    text-align: center;
+}
+.home-menu-content{
+    height: 25%;
+}
+.home-menu-button{
+    position: relative;
+    font-size: 220%;
+    background-color: #c1eec1;
+    font-family: fantasy;
+    width: 52%;
+    height: 60%;
+}
+.game-title{
+    position: absolute;
+    width: 52%;
+    height: 29%;
+    left: 20.5%;
+}
+.home-menu-player-span{
+    font-size: 220%;
+    font-family: fantasy;
+    cursor: default;
+}
+.home-menu-player-input{
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 220%;
+    font-family: fantasy;
+    text-align: center;
+    background: none;
+    border: none;
+}
+.reset-confirmation{
+    position: absolute;
+    left: 38%;
+    width: 25%;
+    top: 30%;
+    height: 57%;
+    border: solid;
+    z-index: 11;
+    text-align: center;
+    background-color: #dae2d6f5;
+    font-size: larger;
+    font-weight: bolder;
+}
+.reset-button{
+    margin: 10px;
+    font-size: larger;
+    font-weight: 700;
+    background-color: white;
+}
+.reset-yes{
+    border-color: #ff3e3e;
+}
+.reset-no{
+    border-color: lawngreen;
+}
+.reset-yes:hover{
+    background-color: #df2121;
+    transition: 0.3s;
+}
+.reset-no:hover{
+    background-color: rgb(30, 158, 30);
+    transition: 0.3s;
 }
 
 /* Playground */
@@ -155,6 +234,32 @@ height: 100% !important;
     position: relative;
     left: 73%;
 }
+.block-input{
+    position: absolute;
+    /* border: solid; */
+    width: 416px;
+    height: 500px;
+    left: 61vw;
+    top: 100px;
+    background-color: #868585;
+    opacity: 80%;
+    z-index: 10;
+    text-align: center;
+}
+.block-content{
+    top: 127px;
+    position: relative;
+    color: #e1ffec;
+    font-size: larger;
+    margin-left: 10px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+.block-button{
+    top: 254px;
+    position: relative;
+    font-size: large;
+}
 
 /* menu */
 .top-right{
@@ -171,12 +276,13 @@ height: 100% !important;
     width: 80px;
     height: 30px;
     text-align: center;
-    font-size: larger;
+    font-size: 23px;
+    font-family: fantasy;
     background-color: #ffff8fd4;
-    border: solid;
     border-color: #38bf00;
     border-width: 2px;
     border-radius: 12px;
+    cursor: pointer;
 }
 .level-navigator{
     width: 80px;
@@ -185,6 +291,59 @@ height: 100% !important;
     font-size: large;
     background-color: #faebd7a6;
 }
+.level-navigator:hover:enabled{
+    background-color: #f1a540a6;
+    color: white;
+    transition:0.3s;
+}
+.level-navigator:disabled{
+    color: rgb(218, 218, 218);
+}
+.menu-tricker:hover{
+    background-color: seagreen;
+    color: white;
+    transition: 0.3s;
+}
 .menu{
-    
+    position: absolute;
+    border: solid;
+    width: 30%;
+    height: 44%;
+    left: 34%;
+    z-index: 10;
+    top: 20%;
+    text-align: center;
+    border-color: #504c47;
+    border-width: 7px;
+}
+.menu-block{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: #d4dfc8;
+    opacity: 60%;
+    z-index: 9;
+}
+.menu-content{
+    height: 25%;
+}
+.menu-button{
+    top: 20%;
+    position: relative;
+    font-size: 140%;
+    background-color: #c1eec1;
+    font-family: fantasy;
+    width: 40%;
+}
+.menu-button:hover{
+    background-color: rgb(82, 194, 131);
+    transition: 0.3s;
+}
+.dropdown-levels{
+    max-width: 50%;
+    top: 20%;
+    position: relative;
+    font-size: 100%;
+    background-color: rgb(193, 238, 193);
 }

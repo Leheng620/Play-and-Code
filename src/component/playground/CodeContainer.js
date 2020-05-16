@@ -41,15 +41,19 @@ export class CodeContainer extends Component {
         Event handler when user presses run.
     */
     runCode = () =>{
+        let doors = this.props.randomizeDoor()
+        let code = this.props.code
+        code = doors.toString() + "\ncodebegin\n" + code
         let msg = {
             args: [],
-            code: this.props.code,
+            code: code,
         }
-        console.log(msg)
+        // console.log(msg)
         this.sendMessage(msg);
     }
     
     render() {
+        // console.log(this.props.defaultCode)
         return (
             <div className='code-container' style={{height: this.props.height + 'px'}}>
                 <div className='run-code-button-container'>

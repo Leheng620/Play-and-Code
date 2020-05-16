@@ -15,3 +15,13 @@ def turn_right():
 def pickup():
     global play_and_code_spring2020_cse323_final_project
     play_and_code_spring2020_cse323_final_project += 'P'
+
+def is_open(i):
+    if i < 0 or i >= len(doors):
+        raise TypeError("Invalid argument!")
+    return doors[i] == 7 or doors[i] == 9
+
+def press_button():
+    global play_and_code_spring2020_cse323_final_project
+    play_and_code_spring2020_cse323_final_project += 'B'
+

@@ -4,4 +4,6 @@ export const readLevel = (index) =>{
     return levels.levels[index]
 }
 
-export default readLevel
+export const totalLevels = levels.levels.length
+
+export const levelData = levels.levels

@@ -53,10 +53,10 @@ function parseDataFile(filePath, defaults) {
 }
 const defaultData = {
     levels:[{
-        code: 'move_forward()'
+        code: ''
     }],
     currentLevel:0,
-    playerName: ''
+    playerName: 'PLAYER'
 }
 const store = new Store({fileName:'playandcode',defaults: defaultData})
 ipcRenderer.send('LOCALSTORAGE-READY');
