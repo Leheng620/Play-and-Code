@@ -25,12 +25,58 @@ def press_button():
     global play_and_code_spring2020_cse323_final_project
     play_and_code_spring2020_cse323_final_project += 'B'
 
-doors = [6,7,6]
+doors = [8,9,6,8]
 
 
 def run():
+	def move(n):
+		for i in range(n):
+			move_forward()
+	def turn_arround():
+		turn_left()
+		turn_left()
+	def move_pickup(n):
+		for i in range(n):
+			move_forward()
+			pickup()
+	move(3)
+	turn_right()
+	if not is_open(0):
+		press_button()
+	move(2)
+	turn_right()
+	move(3)
+	turn_left()
+	if not is_open(1):
+		press_button()
+	move(2)
+	turn_left()
+	move(6)
 	pickup()
+	turn_left()
+	move(4)
+	pickup()
+	turn_arround()
+	move(4)
+	if not is_open(3):
+		press_button()
+	move(2)
+	pickup()
+	turn_arround()
+	move(2)
+	turn_right()
 	move_forward()
-	pickup()
+	if not is_open(2):
+		press_button()
+	move(2)
+	turn_left()
+	move_pickup(1)
+	turn_right()
+	move_pickup(3)
+	turn_left()
+	move_pickup(1)
+	turn_left()
+	move_pickup(3)
+	
 	
 	return play_and_code_spring2020_cse323_final_project

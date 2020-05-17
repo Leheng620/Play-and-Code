@@ -42,7 +42,7 @@ button:active{
     position: absolute;
     height: 100vh;
     width: 100vw;
-    background: url("./img/background1.jpg") scroll;
+    background: url("../img/background1.jpg") scroll;
     background-size: cover;
 }
 .home-menu{
@@ -60,10 +60,27 @@ button:active{
 .home-menu-button{
     position: relative;
     font-size: 220%;
-    background-color: #c1eec1;
+    background-color:#daf2ab;
     font-family: fantasy;
     width: 52%;
     height: 60%;
+    opacity: 80%;
+}
+.home-menu-button-link{
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+.home-menu-button:hover{
+    background-color: rgb(31, 80, 12);
+    color:white;
+    opacity: 100%;
+    transition: 0.5s;
+}
+.home-menu-button-link:hover{
+    color: white;
+    opacity: 100%;
+    transition: 0.5s;
 }
 .game-title{
     position: absolute;
@@ -133,7 +150,7 @@ button:active{
     position: absolute;
     height: 100vh;
     width: 100vw;
-    background: url("./img/background1.jpg") scroll;
+    background: url("../img/background1.jpg") scroll;
     background-size: cover;
     
 }
@@ -205,6 +222,7 @@ button:active{
 .guide-content{
     overflow-wrap: break-word;
     margin: 10px;
+    white-space: pre-wrap;
 }
 .code-container{
     height: 50%;
@@ -227,12 +245,74 @@ height: 100% !important;
     bottom: -2px;
     z-index: 9;
     background-color: gainsboro;
+    opacity: 30%;
+}
+.run-code-button-container:hover{
+    opacity: 90%;
+    transition: 0.3s;
 }
 .run-code-button{
-    height: 20px;
-    width: 24%;
+    width: 15%;
     position: relative;
-    left: 73%;
+    left: 84%;
+    background-color: #f97474;
+    border-color: white;
+    font-weight: 700;
+}
+.cancel-run-code-button{
+    width: 15%;
+    position: relative;
+    left: 52%;
+    background-color: #16d34e;
+    border-color: white;
+    font-weight: 700;
+}
+.reset-run-code-button{
+    width: 15%;
+    left: 20%;
+    position: relative;
+    border-color: white;
+    font-weight: 700;
+    background-color: #5db6ea;
+}
+.run-code-button:disabled, .cancel-run-code-button:disabled, .reset-run-code-button:disabled{
+    background-color: rgb(199, 199, 199);
+}
+.run-speed{
+    width: 48%;
+    position: relative;
+    display: inline-block;
+    left: -43%;
+    text-align: center;
+}
+.run-speed-slider-label{
+    font-size: medium;
+    position: relative;
+}
+.run-speed-slider{
+    background-color: midnightblue;
+    width: 44%;
+    position: relative;
+    cursor: pointer;
+    -webkit-appearance: none;
+    height: 4px;
+    bottom: 4px;
+    border-radius: 5px;
+    outline: none;
+}
+.run-speed-slider:focus{
+    border-color: none;
+    outline: none;
+}
+.run-speed-slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #c8a21f;
+}
+.run-speed-slider:disabled::-webkit-slider-thumb{
+    background-color: rgb(197, 197, 197);
 }
 .block-input{
     position: absolute;

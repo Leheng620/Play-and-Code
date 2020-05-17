@@ -10,6 +10,21 @@ export class CodePanel extends Component {
         defaultHeight : 250,
     }
 
+    formatGuide = () =>{
+        if(this.props.guide == null) return null
+        let guideList = this.props.guide.split("\n")
+        let result = []
+        for(let i = 0; i < guideList.length; i++){
+            if(guideList[i][0] == "*"){
+                guideList[i] = guideList[i].substring(1, guideList[i].length)
+                result.push(<p  className='guide-content' style={{color:'#b92323'}}>{guideList[i]}</p>)
+            }else{
+                result.push(<p  className='guide-content'>{guideList[i]}</p>)
+            }
+        }
+        return result
+    }
+
     render() {
         return (
             <div className='code-panel'>
@@ -26,14 +41,15 @@ export class CodePanel extends Component {
                         this.setState({defaultHeight: this.state.codeContainerHeight})
                     }}
                     >
-                        <p className='guide-content'>
-                            {this.props.guide}
-                        </p>
+                        
+                        {this.formatGuide()}
                 </Resizable>
 
                 <CodeContaienr height={this.state.codeContainerHeight} parseScript={this.props.parseScript}
                     processEnterCode={this.props.processEnterCode} defaultCode={this.props.defaultCode}
                     code={this.props.code} doors={this.props.doors} randomizeDoor={this.props.randomizeDoor}
+                    cancelRunning={this.props.cancelRunning} running={this.props.running}
+                    speed={this.props.speed} changeSpeed={this.props.changeSpeed} reset={this.props.reset}
                 />
             </div>
         )

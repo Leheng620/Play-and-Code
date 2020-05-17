@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import littleMan from '../sprite/littleman.png'
 import littleManShadow from '../sprite/littleman_shadow.png'
-import '../../css/character.css'
+// import '../../css/character.css'
 export class LittleMan extends Component {
     render() {
         return (

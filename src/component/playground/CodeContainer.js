@@ -57,9 +57,21 @@ export class CodeContainer extends Component {
         return (
             <div className='code-container' style={{height: this.props.height + 'px'}}>
                 <div className='run-code-button-container'>
-                    <button className='run-code-button' onClick={this.runCode}>
+                    <button className='run-code-button' onClick={this.runCode} disabled={this.props.running}>
                         run
                     </button>
+                    <button className='cancel-run-code-button' onClick={this.props.cancelRunning} disabled={!this.props.running}>
+                        cancel
+                    </button>
+                    <button className='reset-run-code-button' onClick={this.props.reset} disabled={this.props.running} >
+                        reset
+                    </button>
+                    <div className='run-speed'>
+                        <label htmlFor='run-speed-slider' className='run-speed-slider-label'>Run Speed: </label>
+                        <input name='run-speed-slider' className='run-speed-slider' type='range' min='0.3' max='0.9' step='0.05'
+                            value={this.props.speed} onChange={this.props.changeSpeed} disabled={this.props.running}
+                        />
+                    </div>
                 </div>
                 <CodeMirror className='default'
                 value={this.props.defaultCode}

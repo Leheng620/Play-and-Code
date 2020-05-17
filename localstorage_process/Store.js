@@ -6,11 +6,17 @@ const { ipcRenderer } = require('electron');
 class Store {
     constructor(opts) {
         // Get the application's current directory
+        // const userDataPath = electron.remote.app.getPath('appData');
         const userDataPath = electron.remote.app.getAppPath();
         // We'll use the `fileName` property to set the file name and path.join to bring it all together as a string
+        // const userDirectoryPath = path.join(userDataPath, 'playandcode')
+        // if (!fs.existsSync(userDirectoryPath)){
+        //     fs.mkdirSync(userDirectoryPath);
+        // }
+        // this.path = path.join(userDirectoryPath, opts.fileName + '.json');
         this.path = path.join(userDataPath, opts.fileName + '.json');
         this.path = path.normalize(this.path)
-        console.log(this.path)
+        // console.log(this.path)
         // this.data = parseDataFile(this.path, opts.defaults);
         this.defaults = opts.defaults
         this.data = null

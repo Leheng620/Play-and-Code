@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import gamename from '../../img/gamename.png'
 
 const electron = window.require('electron');
-const { ipcRenderer } = electron;
+const { ipcRenderer, remote } = electron;
+const { BrowserWindow } = remote
 
 export class HomeScreen extends Component {
 
@@ -35,6 +36,8 @@ export class HomeScreen extends Component {
     }
 
     render() {
+        // console.log(remote.getCurrentWindow().webContents.zoomFactor)
+        // console.log(remote.getCurrentWindow().getSize())
         return (
             <div className='home-container'>
                 <div className='game-title'>
@@ -60,8 +63,8 @@ export class HomeScreen extends Component {
                     </div>
                     <div className='home-menu-content'>
                         <button className='home-menu-button'>
-                            <Link to={{pathname:'/playground', state: {store:this.state.data}}}
-                                style={{display:'block', textDecoration:'none', color:'black'}}
+                            <Link className='home-menu-button-link' to={{pathname:'/playground', state: {store:this.state.data}}}
+                               
                             >
                                 PLAY
                             </Link>
@@ -73,7 +76,7 @@ export class HomeScreen extends Component {
                         </button>
                     </div>
                     <div className='home-menu-content'>
-                        <button className='home-menu-button'>
+                        <button className='home-menu-button' onClick={()=>{remote.app.quit()}}>
                             EXIT
                         </button>
                     </div>

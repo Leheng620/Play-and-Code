@@ -2,10 +2,92 @@
     "levels":[
         {
             "key":0,
-            "title": "Level 0",
+            "title": "Level 0 Introduction",
             "playerInfo":{
-                "x" : 0,
-                "y" : 0,
+                "x" : 4,
+                "y" : 5,
+                "direction" : -1
+            },
+            "levelMission": {
+                "target": 1  
+            },
+            "playgroundBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,1,2,1,4,3,2,1,2,2,0,0,0],
+                [0,0,0,3,0,0,0,0,0,0,0,3,0,0,0],
+                [0,0,0,4,0,-1,0,0,0,0,0,1,0,0,0],
+                [0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],
+                [0,0,0,1,2,2,3,4,4,3,1,1,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "itemBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "guide": "Welcome to PLAY AND CODE~~ Here you will follow little John to learn how to code in python.\n\nComputer is a machine to execute command. Human is the one who gives command to computer. Programming language serves as a bridge that can be used to deliver command from human to computer so that they can communicate with each other.\n\nPython is one of a programming language, it has a set of syntax. In order to have computer understand what human wants it to do, following the syntax of python is important.\n\nLittle John is an adventurer, he likes collecting yellow mushroom.\n\nToday he went to the forest of mystery and got lost. Could you help him collect all the mushrooms?\n\nHere, you are given two \"commands\" to control him: \n\n*move_forward(): Little John moves 1 position further based on its facing direction.\n*pickup(): Little John performs a pickup action, if he is standing at a mushroom, he will pick it up.\n\nYou have to type these \"commands\" one per line. A command is considered as a statement in python, and a statement can only appear in a single line, otherwise, you will get a syntax error.\n\nAfter you finished typing, simply click \"run\" to deliver those command to little John, and you could watch the result. Running speed can be adjusted by using the slider below. Furthermore, you could cancel the running process by clicking \"cancel\". If you successfully finish the mission, you will unlock a new level. \n\nYour mission is to collect all mushroom in the forest (The 10x15 grid). Good Luck and Have Fun.",
+            "random": false
+            
+        },
+        {
+            "key":1,
+            "title": "Level 1 More Mushrooms",
+            "playerInfo":{
+                "x" : 4,
+                "y" : 9,
+                "direction" : -3
+            },
+            "levelMission": {
+                "target": 3  
+            },
+            "playgroundBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,1,2,1,3,1,4,1,1,1,0,0,0],
+                [0,0,0,1,0,0,0,0,0,0,0,2,0,0,0],
+                [0,0,0,3,0,0,0,0,0,-3,0,2,0,0,0],
+                [0,0,0,1,0,0,0,0,0,0,0,2,0,0,0],
+                [0,0,0,4,1,3,3,3,2,1,4,3,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "itemBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,1,1,1,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "guide": "Now try to get use to sending commands.",
+            "random": true
+            
+        },
+        {
+            "key":2,
+            "title": "Level 2 Cross the River",
+            "playerInfo":{
+                "x" : 4,
+                "y" : 6,
                 "direction" : -1
             },
             "levelMission": {
@@ -13,39 +95,279 @@
             },
             "playgroundBoard":
             [
-                [-1,0,6,6,6,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,2,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,3,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,4,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,3,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,-1,2,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,3,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,2,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]
+            ],
+            "itemBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "guide": "As you can see, there is a river crossing the forest, but it is cut at the center. Little John cannot pass the river.\n\nTherefore, you are given two new commands here:\n\n*turn_left(): Little John turns to his left.\n\n*turn_right(): Little John turns to his right.\n\nDo pay close attention on Little John's initial facing direction.",
+            "random": false
+            
+        },
+        {
+            "key":3,
+            "title": "Level 3 Rock Room",
+            "playerInfo":{
+                "x" : 4,
+                "y" : 3,
+                "direction" : -1
+            },
+            "levelMission": {
+                "target": 3  
+            },
+            "playgroundBoard":
+            [
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,5,5,5,5,5,5,5,0,0,0,0],
+                [0,0,0,0,5,0,0,0,0,0,5,0,0,0,0],
+                [0,0,0,-1,0,0,0,0,0,0,5,0,0,0,0],
+                [0,0,0,0,5,0,0,0,0,0,5,0,0,0,0],
+                [0,0,0,0,5,5,5,5,5,5,5,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
             ],
             "itemBoard":
             [
-                [1,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "guide": "Little John saw a rock room, he also cannot pass through rock. Try your best to collect all the mushrooms.",
+            "random": false
+        },
+        {
+            "key":4,
+            "title": "Level 4 Move Further",
+            "playerInfo":{
+                "x" : 4,
+                "y" : 2,
+                "direction" : -1
+            },
+            "levelMission": {
+                "target": 3  
+            },
+            "playgroundBoard":
+            [
+                [0,0,0,0,0,0,1,0,5,0,0,0,0,0,0],
+                [0,0,0,0,0,0,2,0,5,0,0,0,0,0,0],
+                [0,0,0,0,0,0,3,0,5,0,0,0,0,0,0],
+                [1,2,1,2,2,1,1,0,5,0,0,0,0,0,0],
+                [0,0,-1,0,0,0,0,0,5,0,0,0,0,0,0],
+                [3,2,3,1,3,1,1,0,5,0,0,0,0,0,0],
+                [0,0,0,0,0,0,1,0,5,0,0,0,0,0,0],
+                [0,0,0,0,0,0,3,0,5,0,0,0,0,0,0],
+                [0,0,0,0,0,0,3,0,5,0,0,0,0,0,0],
+                [0,0,0,0,0,0,1,0,5,0,0,0,0,0,0]
+            ],
+            "itemBoard":
+            [
+                [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]
+            ],
+            "guide": "Now, you may notice that typing move_forward() many times is a bit silly and tired. Fortunately, in programming language, you can write a loop to ask the computer to repeat doing a certain task.\nIn python, there are two types of loop, \"for\" loop and \"while\" loop.\n\nIf you want a task to be repeated n times, you can do the following: \n\nfor (variable name) in range(n):\n       do something\n  \n*Note that do something is indented, in python, indentation plays an important role because it defines a block of code. In this case, if you want to do something within the for loop, \"do something\" has to be indented by typing a single tab.\n\nWrong Example:\n\nfor i in range(3):\nmove_forward()\n\n*This is a syntax error because move_forward() is not indented and for loop is supposed to have something inside its body. Its body means whatever is indented under it.\n\nCorrect Example:\n\nfor i in range(3):\n    move_forward()\nmove_forward()\n\nThis is the correct example for using for loop. In this case, move_forward() will be executed 3 times, and the for loop ends, then the second move_forward() will be executed. Note that the second move_forward() is not part of the for loop.\n\nAlso note that \"i\" is a variable, its value will changed in each iteration. In this case, the value of i begins at 0, so it is 0, 1, 2.\n\nWe will talk about while loop later.",
+            "random": false
+        },
+        {
+            "key":5,
+            "title": "Level 5 Maze",
+            "playerInfo":{
+                "x" : 2,
+                "y" : 0,
+                "direction" : -1
+            },
+            "levelMission": {
+                "target": 4  
+            },
+            "playgroundBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [5,5,5,5,5,5,5,5,5,5,0,0,0,0,0],
+                [-1,0,0,0,0,0,0,0,0,5,0,0,0,0,0],
+                [5,5,5,5,5,5,5,5,0,5,0,0,0,0,0],
+                [0,0,0,0,0,0,0,5,0,5,0,0,0,0,0],
+                [0,0,0,0,0,0,0,5,0,5,0,0,0,0,0],
+                [0,0,0,0,0,0,0,5,0,5,5,5,5,5,0],
+                [0,0,0,0,0,0,0,5,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,5,5,5,5,5,5,5,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "itemBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [1,0,0,0,0,0,0,0,1,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,1,0,0,0,0,0,1],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "guide": "Try to have more fun using for loop.",
+            "random": false
+        },
+        {
+            "key":6,
+            "title": "Level 6 Maze2",
+            "playerInfo":{
+                "x" : 0,
+                "y" : 2,
+                "direction" : -2
+            },
+            "levelMission": {
+                "target": 29  
+            },
+            "playgroundBoard":
+            [
+                [0,5,-2,5,0,0,0,0,0,0,0,0,0,0,0],
+                [0,5,0,5,0,0,0,0,0,0,0,0,0,0,0],
+                [0,5,0,5,5,5,5,5,5,5,5,5,5,5,0],
+                [0,5,0,0,0,0,0,0,0,0,0,0,0,5,0],
+                [0,5,5,5,5,5,5,5,5,5,5,5,0,5,0],
+                [0,0,0,0,0,0,0,0,0,0,0,5,0,5,0],
+                [5,5,5,5,5,5,5,5,5,5,5,5,0,5,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,5,0],
+                [5,5,5,5,5,5,5,5,5,5,5,5,5,5,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "itemBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,1,1,1,1,1,1,1,1,1,1,1,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],
+                [1,1,1,1,1,1,1,1,1,1,1,1,1,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "guide": "There are so many mushrooms! Be sure to make a good use of for loop.",
+            "random": false
+        },
+        {
+            "key":7,
+            "title": "Level 7 Maze3",
+            "playerInfo":{
+                "x" : 2,
+                "y" : 2,
+                "direction" : -1
+            },
+            "levelMission": {
+                "target": 18  
+            },
+            "playgroundBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,5,5,5,5,5,5,5,5,0,0,0,0,0],
+                [0,0,-1,0,0,0,0,0,0,5,0,0,0,0,0],
+                [0,0,5,5,5,5,5,5,0,5,0,0,0,0,0],
+                [0,0,0,0,0,0,0,5,0,5,0,0,0,0,0],
+                [0,0,0,0,0,0,0,5,0,5,0,0,0,0,0],
+                [0,0,0,0,0,0,0,5,0,5,0,0,0,0,0],
+                [5,5,5,5,5,5,5,5,0,5,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,5,0,0,0,0,0],
+                [5,5,5,5,5,5,5,5,5,5,0,0,0,0,0]
+            ],
+            "itemBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,1,1,1,1,1,1,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],
+                [0,0,1,1,1,1,1,1,1,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "guide": "Observe the pattern, did you find anything?\n\nTry if you can use nested for loop to avoid repeating writing the same code.\n\nNested for loop is something like this:\n\n*for i in range(3):\n*      for j in range(3):\n*           move_forward()\n                      \nNote that move_forward() is 2 tabs indented where 1 tab is equal to 4 spaces, it indicates that it should be under the second(inner) for loop. In this case, in each iteration of the outer for loop, inner for loop will run its body 3 times, so move_forward() is executed 3*3 = 9 times in this case.",
+            "random": false
+        },
+        {
+            "key":8,
+            "title": "Level 8 Open the Door",
+            "playerInfo":{
+                "x" : 4,
+                "y" : 5,
+                "direction" : -1
+            },
+            "levelMission": {
+                "target": 1  
+            },
+            "playgroundBoard":
+            [
+                [0,0,0,0,0,0,0,5,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,5,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,5,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,5,0,0,0,0,0,0,0],
+                [0,0,0,0,0,-1,0,6,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,5,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,5,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,5,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,5,0,0,0,0,0,0,0],
+                [1,1,1,1,1,1,1,2,1,1,3,1,2,1,1]
+            ],
+            "itemBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
             ],
-            "guide": "This is guide",
-            "random": true
-            
+            "guide": "\"bool\" is a data type in python. It stands for boolean in which the value can be either \"True\" or \"False\", First letter is CAP.\n\nSometimes you want to make sure to execute a command only if a condition is true, if it is not true, then execute another command. This is the idea of control flow. In python, it is a use of if statement. The following is the syntax for if statement in python:\n\n*if condition:\n*    do something\n\nHere condition is a bool where it is either True or False. You can also optionally add and else statement to follow an if statement:\n\n*if condition:\n*    do something\n*else:\n*    do something\n\nIf the condition is false, it will only execute whatever is under the else statement.\n\nHere, as you can see, there is a door in front of little John. You are given a new command:\n\n*is_open(door_number): return a bool value (True or False) indicates whether the door with the corresponding door number is open or not.\n\ndoor_number is a parameter which represents the door number in the forest. The door number starts from column to column then row to row. In other words, door that has lower row number will have smaller door number. If two doors have the same row number, the one that has lower column number will have the smaller door number. \n\ndoor number starts at 0. If there is only one door, then it has door number 0. If the door number is invalid, the program will fail.\n\n*It is very important to note that is_open() will be True if the door is opened, but clearly you only want to open the door if the door is closed. What you can do is to add a \"not\" in front of is_open(), it means to negate the boolean value. So, if is_open() return True, the value will be negated to False, and vice versa.\n\nAnd, you are given aother new command:\n\n*press_button(): Little John will press the button which will open the door or close the door if the door is closed or is opened, respectively. In addition, he can only do press_button() if:\n\n*1. He is facing the door.\n*2. He is one step from the door.\n\nA simple example to combine those 2 new commands:\nif not is_open(0):\n       press_button()",
+            "random": false
         },
         {
-            "key":1,
-            "title": "Level 1",
+            "key":9,
+            "title": "Level 9 Get Out",
             "playerInfo":{
-                "x" : 0,
+                "x" : 4,
                 "y" : 0,
                 "direction" : -1
             },
@@ -54,41 +376,120 @@
             },
             "playgroundBoard":
             [
-                [-1,0,5,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,6,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,5,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                [0,0,0,0,0,0,0,0,0,0,0,1,1,1,1],
+                [0,0,0,0,0,0,0,0,0,0,0,1,1,1,1],
+                [5,5,5,5,5,0,0,0,0,0,0,3,3,2,2],
+                [0,0,0,0,5,5,5,5,0,0,0,3,3,3,1],
+                [-1,0,0,0,6,6,6,0,0,0,0,1,2,3,1],
+                [0,0,0,0,5,5,5,5,0,0,0,1,2,1,1],
+                [5,5,5,5,5,0,0,0,0,0,0,2,2,2,2],
+                [0,0,0,0,0,0,0,0,0,0,0,2,2,1,4],
+                [0,0,0,0,0,0,0,0,0,0,0,4,1,1,1],
+                [0,0,0,0,0,0,0,0,0,0,0,3,4,4,2]
             ],
             "itemBoard":
             [
-                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
             ],
-            "guide": "This is level 1",
-            "random": true
-            
+            "guide": "Open the doors and get little John out of the room.",
+            "random": false
         },
         {
-            "key":2,
-            "title": "Level 2",
+            "key":10,
+            "title": "Level 10 Play With Water",
             "playerInfo":{
-                "x" : 1,
-                "y" : 1,
-                "direction" : -2
+                "x" : 4,
+                "y" : 6,
+                "direction" : -1
+            },
+            "levelMission": {
+                "target": 8  
+            },
+            "playgroundBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,1,1,1,1,3,0,2,1,1,0,0,0],
+                [0,0,0,5,0,0,0,0,0,0,0,1,0,0,0],
+                [0,0,0,5,5,5,8,5,5,5,0,2,0,0,0],
+                [0,0,0,0,0,0,-1,0,0,5,0,2,0,0,0],
+                [0,0,0,0,0,0,0,0,0,5,0,1,0,0,0],
+                [0,0,0,0,0,0,0,0,0,5,0,2,0,0,0],
+                [0,0,0,0,0,0,0,0,0,5,0,1,0,0,0],
+                [0,0,0,0,0,0,0,0,0,5,0,2,0,0,0],
+                [0,0,0,0,0,0,0,0,0,5,0,2,0,0,0]
+            ],
+            "itemBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,1,1,1,1,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "guide": "Remember little John can only open the door when he is facing at it AND he is one step away from it.\n\nRemember is_open(door_number) should take exactly 1 argument, otherwise you will get a error. door_number is the door number that is assigned to each door in the forest from column to column, then row to row.",
+            "random": false
+        },
+        {
+            "key":11,
+            "title": "Level 11 Cross Two Doors",
+            "playerInfo":{
+                "x" : 4,
+                "y" : 4,
+                "direction" : -1
+            },
+            "levelMission": {
+                "target": 8  
+            },
+            "playgroundBoard":
+            [
+                [0,0,0,0,0,5,0,5,0,0,0,0,0,0,0],
+                [0,0,0,0,0,5,0,5,0,0,0,0,0,0,0],
+                [0,0,0,0,0,5,0,5,0,0,0,0,0,0,0],
+                [0,0,0,0,0,5,0,5,0,0,0,0,0,0,0],
+                [0,0,0,0,-1,6,0,6,0,0,0,0,0,0,0],
+                [0,0,0,0,0,5,0,5,0,0,0,0,0,0,0],
+                [0,0,0,0,0,5,0,5,0,0,0,0,0,0,0],
+                [0,0,0,0,0,5,0,5,0,0,0,0,0,0,0],
+                [0,0,0,0,0,5,0,5,0,0,0,0,0,0,0],
+                [0,0,0,0,0,5,0,5,0,0,0,0,0,0,0]
+            ],
+            "itemBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,1,0,1,1,1,1,1,1,1],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "guide": "Try to combine what you have learn so far to solve the problem.",
+            "random": false
+        },
+        {
+            "key":12,
+            "title": "Level 12 Three Random Doors",
+            "playerInfo":{
+                "x" : 4,
+                "y" : 5,
+                "direction" : -1
             },
             "levelMission": {
                 "target": 1  
@@ -96,11 +497,11 @@
             "playgroundBoard":
             [
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [1,1,1,2,1,3,4,1,1,2,1,1,1,1,1],
+                [0,0,0,0,0,-1,6,6,6,0,0,0,0,0,0],
+                [3,3,2,1,2,1,1,1,1,2,2,2,3,1,1],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -109,19 +510,178 @@
             "itemBoard":
             [
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
             ],
-            "guide": "This is level 2",
+            "guide": "Now you may wonder, why do you need to use is_open() to find out whether the door is open or not if you can just see it. Well, consider this case:\n\nIf you want to accept an user's input and tell the user if the input number is even or odd, you have no way to know after you recieved the input. Therefore, here is when if statement comes in. It can make a decision based on the user's input.\n\nSame idea here, what if the door's conditions are unpredicted. That is, whether the door is open or not is completely random. The door's condition will change every time you hit run. If you don't know whether the door is open or not, you can't do press_button() because you may not always get it work.\n\n*Make use of is_open() to decide when to press the button.\n\nA variable can hold a value, you can use an equal sign to assign a value to a variable:\n\na = 1\n\nThis is called a assignment statement. Now a holds the value of 1, the data type of a is \"int\" which means integer.\n\nVariable can be used to replace an actual value.\n\n*in a for loop, you will see for i in ..., i is a variable. i is the name of the variable, it can be anything starts with a letter or underscore. Its value starts with 0, and changes in each iteration, so you can also make use of this variable to pass a parameter into is_open()",
+            "random": true
+        },
+        {
+            "key":13,
+            "title": "Level 13 All Random Doors",
+            "playerInfo":{
+                "x" : 4,
+                "y" : 1,
+                "direction" : -1
+            },
+            "levelMission": {
+                "target": 5 
+            },
+            "playgroundBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [2,1,1,1,1,1,1,2,2,4,2,2,1,2,1],
+                [0,-1,0,6,0,6,0,6,0,6,0,6,0,0,0],
+                [2,1,1,1,3,1,2,4,2,2,1,3,2,2,1],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "itemBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,1,0,1,0,1,0,1,0,1,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "guide": "Remember door number starts with 0. Try to let little John get cross the narrow path!",
+            "random": true
+        },
+        {
+            "key":14,
+            "title": "Level 14 Get the Mushrooms",
+            "playerInfo":{
+                "x" : 2,
+                "y" : 6,
+                "direction" : -2
+            },
+            "levelMission": {
+                "target": 5
+            },
+            "playgroundBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,5,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,5,0,0,0],
+                [0,0,0,0,0,0,-2,0,0,0,0,5,0,0,0],
+                [0,0,0,5,5,5,9,5,5,5,5,5,0,0,0],
+                [0,0,0,5,0,0,0,6,0,0,0,5,0,0,0],
+                [0,0,0,5,5,5,5,5,5,5,8,5,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,5,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "itemBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,1,0,1,1,1,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "guide": "Try to get all mushrooms in the room. Remember you may want to add not in front of is_open()",
+            "random": true
+        },
+        {
+            "key":15,
+            "title": "Level 15 Repetition",
+            "playerInfo":{
+                "x" : 7,
+                "y" : 3,
+                "direction" : -4
+            },
+            "levelMission": {
+                "target": 3
+            },
+            "playgroundBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,5,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,5,0,5,5,5,0,5,0,0,0,0,0,0],
+                [0,0,5,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,5,0,5,0,5,0,5,0,0,0,0,0,0],
+                [0,0,5,0,5,0,5,0,5,0,0,0,0,0,0],
+                [0,0,5,0,5,0,5,0,5,0,0,0,0,0,0],
+                [0,0,5,-4,5,0,5,0,5,0,0,0,0,0,0],
+                [0,0,5,0,5,5,5,5,5,0,0,0,0,0,0],
+                [0,0,5,0,5,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "itemBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,1,0,1,0,1,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "guide": "As a programmar, it is important to follow the DRY rule when writing code. DRY stands for don't repeat yourself. When you want to repeat doing a certain task, it is better to have a black box to group all the code together, and only use the black box as a whole to finish the task. This is the idea of function. \n\nFunction is very similar to what it is in math. It takes in 0 or more parameters, and performs operations, then optionally returns a value as a result of the operation.\n\nIn python, a function is defined by:\n\n*def function_name():\n*    function_body\n\nFor example, when you need to do move_forward() and pickup() several time, you can put them in a function:\n\n*def move_and_pickup():\n*    move_forward()\n*    pickup()\n\nWhen you want to use it, you can call it by its name:\n\n*move_and_pickup()\n\nWhen this line is executed, it will automatically execute move_forward() and pickup().",
             "random": false
-            
+        },
+        {
+            "key":16,
+            "title": "Level 16 Challenge",
+            "playerInfo":{
+                "x" : 1,
+                "y" : 1,
+                "direction" : -1
+            },
+            "levelMission": {
+                "target": 11
+            },
+            "playgroundBoard":
+            [
+                [2,2,4,2,3,4,2,3,2,2,2,2,3,2,1],
+                [3,-1,0,0,0,5,0,0,5,0,0,0,0,0,2],
+                [1,5,5,5,8,5,0,0,5,0,0,0,0,0,3],
+                [2,0,0,0,0,5,0,0,5,0,0,0,0,0,1],
+                [2,9,5,5,5,5,0,0,5,5,0,0,0,0,1],
+                [2,0,0,0,0,0,0,0,0,6,0,0,0,0,3],
+                [1,5,5,5,5,5,5,8,5,5,5,5,5,5,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,4],
+                [2,0,0,0,0,0,0,0,0,0,0,0,0,0,3],
+                [1,2,1,2,1,1,1,1,1,1,1,1,3,2,1]
+            ],
+            "itemBoard":
+            [
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,1,1,1,1,0],
+                [0,0,0,0,0,0,0,0,0,0,1,1,1,1,0],
+                [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            ],
+            "guide": "Now, try to use what you have learn to finish this mission.",
+            "random": true
         }
     ]
 }

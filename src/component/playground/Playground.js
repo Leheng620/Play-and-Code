@@ -54,6 +54,7 @@ export class Playground extends Component {
         doors: [],
         random : true,
         playerName: "",
+        running: false,
     }
 
     componentDidMount = () =>{
@@ -138,7 +139,7 @@ export class Playground extends Component {
         }, ()=>{
             let code = args.message; // encoded message of the character movement
             if(args.error){
-                this.setState({failed: {taskFailed: false, error: code}})
+                this.setState({failed: {taskFailed: false, error: code}, running:false})
                 return;
             }
             let i = 0;
@@ -151,21 +152,22 @@ export class Playground extends Component {
                         if(currentLevelLimit !== this.state.totalLevelLimit){
                             if(currentLevel === currentLevelLimit - 1){
                                 this.storeData(null, null, null, 1) // unlock new level
-                                this.setState({success: true, currentLevelLimit: currentLevelLimit+1})
+                                this.setState({success: true, currentLevelLimit: currentLevelLimit+1, running: false})
                             }
                             else{
-                                this.setState({success:true})
+                                this.setState({success:true, running: false})
                             }
                         }else{
-                            this.setState({success: true})
+                            this.setState({success: true, running: false})
                         }
                     }else{
-                        this.setState({failed: {taskFailed:true, error:""}})
+                        this.setState({failed: {taskFailed:true, error:""}, running:false})
                     }
                     clearInterval(interval);
                 }
                 // this.setState({board:state[i]},()=>{i++})
                 let newState = this.nextStep(code[i]);
+                this.setState({interval: interval})
                 this.setState(newState, ()=>{i++})
             }, (1-speed)*1000)
         })
@@ -208,6 +210,7 @@ export class Playground extends Component {
                 ny = y
                 nd = d
                 pickup = true
+                break;
             case 'B':
                 nx = x
                 ny = y
@@ -231,7 +234,7 @@ export class Playground extends Component {
             if(button){
                 board = this.openDoor(board, nx, ny, nd)
             }
-            console.log(nx, ny, nd, code)
+            // console.log(nx, ny, nd, code)
             board[nx][ny] = nd;
             return({
                 playerx: nx,
@@ -239,7 +242,7 @@ export class Playground extends Component {
                 playgroundBoard: board,
                 itemBoard: itemBoard,
                 direction: nd,
-                remaining : remaining
+                remaining : remaining,
             })
         }else{
             return this.state
@@ -273,6 +276,35 @@ export class Playground extends Component {
             }
         }
         return board
+    }
+
+    /*
+        Cancel running script
+    */
+    cancelRunning = () =>{
+        if(this.state.interval != null){
+            clearInterval(this.state.interval)
+            this.setState({interval: null, running: false})
+        }
+    }
+
+    reset = ()=>{
+        const data = this.props.location.state.store
+        let playgroundBoard = JSON.parse(JSON.stringify(tempBoard(data.currentLevel).playgroundBoard))
+        this.setState({
+            playgroundBoard: playgroundBoard,
+            itemBoard : JSON.parse(JSON.stringify(tempBoard(data.currentLevel).itemBoard)), 
+            playerx: tempBoard(data.currentLevel).playerInfo.x, 
+            playery: tempBoard(data.currentLevel).playerInfo.y, 
+            direction: tempBoard(data.currentLevel).playerInfo.direction,
+            target : tempBoard(data.currentLevel).levelMission.target,
+            remaining : tempBoard(data.currentLevel).levelMission.target,
+            success : false,
+            failed: {
+                taskFailed:false,
+                error: ""
+            }
+        })
     }
 
     // generate component <PlaygroundRow>
@@ -341,6 +373,9 @@ export class Playground extends Component {
         }
     }
 
+    /*
+        Get the option component of the dropdown menu
+    */
     getDropdownOptions = () =>{
         let levels = levelData
         let levelList = []
@@ -355,6 +390,15 @@ export class Playground extends Component {
         }
         return levelList
     }
+
+    /*
+        Get the sound effect
+    */
+   getSoundEffect = () =>{
+       let soundEffect = this.state.soundEffect
+       let result = []
+       return result
+   }
 
     /*
         This function is called when the code is run, and it will randomize
@@ -387,7 +431,7 @@ export class Playground extends Component {
                 }
             }
         }
-        this.setState({doors: doors, playgroundBoard: playgroundBoard, defaultCode: this.state.code})
+        this.setState({doors: doors, playgroundBoard: playgroundBoard, defaultCode: this.state.code, running: true})
         return doors
     }
 
@@ -403,6 +447,13 @@ export class Playground extends Component {
             this.storeData(this.state.code, null, null, null)
         })
     }
+
+    /*
+        Change the running speed
+    */
+   changeSpeed = (e) =>{
+        this.setState({speed: Number(e.target.value)})
+   }
 
     /*
         Store any changed data into local data file
@@ -484,7 +535,9 @@ export class Playground extends Component {
             
             <CodePanel parseScript={this.parseScript} processEnterCode={this.processEnterCode}
                 defaultCode={this.state.defaultCode} code={this.state.code} guide={this.state.guide} 
-                doors={this.state.doors} randomizeDoor={this.randomizeDoor}
+                doors={this.state.doors} randomizeDoor={this.randomizeDoor} cancelRunning={this.cancelRunning}
+                running={this.state.running} speed={this.state.speed} changeSpeed={this.changeSpeed}
+                reset={this.reset}
             />
 
             {this.getErrorMessage()}
@@ -495,7 +548,7 @@ export class Playground extends Component {
                 </div>
                 {/* <Link to={'/'}>aaa</Link> */}
                 {/* <button onClick={()=>{this.props.history.goBack()}}>aaaa</button> */}
-                <Link to={'/'}>aaa</Link>
+                {/* <Link to={'/'}>aaa</Link> */}
             </div>
 
             <div className='menu-block' hidden={!this.state.showMenu}></div>
@@ -505,7 +558,7 @@ export class Playground extends Component {
                 </div>
                 <div className='menu-content'>
                     <button className='menu-button'>
-                        <Link className='link-to-home' style={{ color:'black',textDecoration:'none'}} to={'/'}>MAIN MENU</Link>
+                        <Link className='link-to-home' style={{display:'block', color:'black',textDecoration:'none'}} to={'/'}>MAIN MENU</Link>
                     </button>
                 </div>
                 <div className='menu-content'>

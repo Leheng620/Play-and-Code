@@ -3,9 +3,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Playground from './component/playground/Playground'
 import HomeScreen from './component/startup/HomeScreen'
 
-import bg from './img/background1.jpg'
 
-import './cgame.css'
+import './css/cgame.css'
+import './css/character.css'
 //import './App.css';
 //import logo from './logo.svg';
 //<img src={logo} className="App-logo" alt="logo" />

@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, screen} = require('electron')
+const {app, BrowserWindow, screen, Menu} = require('electron')
 const path = require('path')
 const isDev = require('electron-is-dev');
 
@@ -19,13 +19,21 @@ function createWindow () {
     width,
     height,
     resizable:false,
+    icon:path.join(__dirname, './icon.png'),
+    show: false, // in order to make the scale work, this step is important
     // default is false and will improve security preventing from accessing local file
     // This step is important if want to access local file!!!!!!!
     webPreferences: {
-      nodeIntegration: true 
+      nodeIntegration: true ,
     }
   })
-
+  let zoomFactor = ((width / 1271.52 + height / 688.74) / 2).toFixed(2) // scale the app based on current window resolution
+  mainWindow.once("ready-to-show", () => {
+    mainWindow.webContents.zoomFactor = Number(zoomFactor);
+    mainWindow.show();
+  });
+  
+  Menu.setApplicationMenu(null)
   // and load the index.html of the app.
   mainWindow.loadURL(
       isDev ? "http://localhost:3000" : 
@@ -98,7 +106,7 @@ function createProcess(event, msg){
     });
     hiddenWindow.loadURL(backgroundFileUrl);
   
-    hiddenWindow.webContents.openDevTools();
+    // hiddenWindow.webContents.openDevTools();
   
     hiddenWindow.on('closed', () => {
       hiddenWindow = null;
@@ -147,7 +155,7 @@ function createLocalStorageProcess(){
     });
     localStorageWindow.loadURL(backgroundFileUrl);
   
-    localStorageWindow.webContents.openDevTools();
+    // localStorageWindow.webContents.openDevTools();
   
     localStorageWindow.on('closed', () => {
       localStorageWindow = null;
