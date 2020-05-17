@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { PlaygroundProperty, SpriteCode, Facing } from '../constants/CgameConstant'
-import { PlaygroundItem } from "./PlaygroundItem";
 import { PlaygroundRow } from "./PlaygroundRow";
-import LittleMan from '../character/LittleMan'
 import CodePanel from './CodePanel'
 import { readLevel as tempBoard, totalLevels, levelData} from '../../level/LevelReader'
 import mushroomYellow from '../sprite/mushroom_yellow.png'

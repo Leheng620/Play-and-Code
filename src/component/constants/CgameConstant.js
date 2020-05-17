@@ -1,4 +1,3 @@
-
 export const PlaygroundProperty = {
     PLAYGROUND_WIDTH : 620,
     PLAYGROUND_HEIGHT : 420,

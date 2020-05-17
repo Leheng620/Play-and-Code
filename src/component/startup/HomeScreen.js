@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-// import Store from '../../../savefile_process/Store'
 import gamename from '../../img/gamename.png'
 
 const electron = window.require('electron');
 const { ipcRenderer, remote } = electron;
-const { BrowserWindow } = remote
 
 export class HomeScreen extends Component {
 

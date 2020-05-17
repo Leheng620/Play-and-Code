@@ -25,7 +25,7 @@ def press_button():
     global play_and_code_spring2020_cse323_final_project
     play_and_code_spring2020_cse323_final_project += 'B'
 
-doors = [8,9,6,8]
+doors = [9,9,7,9]
 
 
 def run():
