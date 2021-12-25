@@ -44,7 +44,12 @@
     ],
     "extraResources": [
       "python_script/**/*"
-    ]
+    ],
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
