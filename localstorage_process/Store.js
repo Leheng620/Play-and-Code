@@ -8,14 +8,15 @@ class Store {
         // Get the application's current directory
         // const userDataPath = electron.remote.app.getPath('appData');
         const userDataPath = electron.remote.app.getAppPath();
+        // const userDataPath = __dirname;
         // We'll use the `fileName` property to set the file name and path.join to bring it all together as a string
-        // const userDirectoryPath = path.join(userDataPath, 'playandcode')
-        // if (!fs.existsSync(userDirectoryPath)){
-        //     fs.mkdirSync(userDirectoryPath);
-        // }
-        // this.path = path.join(userDirectoryPath, opts.fileName + '.json');
-        this.path = path.join(userDataPath, opts.fileName + '.json');
-        this.path = path.normalize(this.path)
+        const userDirectoryPath = path.join(userDataPath, '/../playandcode')
+        if (!fs.existsSync(userDirectoryPath)){
+            fs.mkdirSync(userDirectoryPath);
+        }
+        this.path = path.join(userDirectoryPath, opts.fileName + '.json');
+        // this.path = path.join(userDataPath, opts.fileName + '.json');
+        // this.path = path.normalize(this.path)
         // console.log(this.path)
         // this.data = parseDataFile(this.path, opts.defaults);
         this.defaults = opts.defaults

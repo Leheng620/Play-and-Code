@@ -1,5 +1,5 @@
 import React,{ Component } from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, HashRouter } from 'react-router-dom'
 import Playground from './component/playground/Playground'
 import HomeScreen from './component/startup/HomeScreen'
 
@@ -14,14 +14,14 @@ import './css/character.css'
 class App extends Component{
   render(){
     return (
-        <BrowserRouter>
+        <HashRouter>
             <div>
               <Switch>
                 <Route exact path='/' component={HomeScreen} />
                 <Route path='/playground' component={Playground} />
               </Switch>
             </div>
-        </BrowserRouter>
+        </HashRouter>
     );
   }
 }

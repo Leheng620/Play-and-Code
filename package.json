@@ -1,7 +1,11 @@
 {
-  "name": "final_project",
-  "version": "0.1.0",
+  "name": "play-and-code",
+  "display_name": "Play and Code",
+  "description": "Introductory coding game with Python.",
+  "author": "L.L.",
+  "version": "1.0.0",
   "main": "./public/electron.js",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -24,9 +28,23 @@
     "react-build": "react-scripts build",
     "react-test": "react-scripts test",
     "react-eject": "react-scripts eject",
-    "electron-build": "electron-builder",
+    "electron-build": "electron-builder --win --publish never",
     "build": "npm run react-build && npm run electron-build",
     "start": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\""
+  },
+  "build": {
+    "appId": "com.playandcode.playandcode",
+    "productName": "Play and Code",
+    "icon": "./public/icon.png",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "localstorage_process/**/*",
+      "runscript_process/**/*"
+    ],
+    "extraResources": [
+      "python_script/**/*"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"

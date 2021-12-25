@@ -1,5 +1,6 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow, screen, Menu} = require('electron')
+const electron = require('electron');
 const path = require('path')
 const isDev = require('electron-is-dev');
 
@@ -19,7 +20,7 @@ function createWindow () {
     width,
     height,
     resizable:false,
-    icon:path.join(__dirname, './icon.png'),
+    icon:isDev ? path.join(__dirname, 'icon.png') : path.join(__dirname, 'icon.png'),
     show: false, // in order to make the scale work, this step is important
     // default is false and will improve security preventing from accessing local file
     // This step is important if want to access local file!!!!!!!
@@ -35,9 +36,13 @@ function createWindow () {
   
   Menu.setApplicationMenu(null)
   // and load the index.html of the app.
+  const startUrl = isDev ? "http://localhost:3000" : url.format({
+    pathname: path.join(__dirname, 'index.html'),
+    protocol: 'file:',
+    slashes: true,
+  });
   mainWindow.loadURL(
-      isDev ? "http://localhost:3000" : 
-      `file://${path.join(__dirname, "../build/index.html")}`
+      startUrl
     )
 
   // Open the DevTools.
@@ -93,8 +98,11 @@ let hiddenWindow = null;
 function createProcess(event, msg){
   // create a new hidden window/process
   if(hiddenWindow == null){
+    const backgroundFilePath = isDev ?
+     path.join(__dirname, `/../runscript_process/background.html`) :
+     path.join(__dirname, `/../runscript_process/background.html`);
     const backgroundFileUrl = url.format({
-      pathname: path.join(__dirname, `/../runscript_process/background.html`),
+      pathname: backgroundFilePath,
       protocol: 'file:',
       slashes: true,
     });
@@ -142,8 +150,11 @@ let localStorageWindow = null
 function createLocalStorageProcess(){
    // create a new hidden window/process
    if(localStorageWindow == null){
+    const localStorageFilePath = isDev?
+     path.join(__dirname, `/../localstorage_process/localstorage.html`):
+     path.join(__dirname, `/../localstorage_process/localstorage.html`);
     const backgroundFileUrl = url.format({
-      pathname: path.join(__dirname, `/../localstorage_process/localstorage.html`),
+      pathname: localStorageFilePath,
       protocol: 'file:',
       slashes: true,
     });

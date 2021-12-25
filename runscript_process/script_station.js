@@ -8,6 +8,7 @@
 
 const { PythonShell } = require('python-shell');
 const { ipcRenderer } = require('electron');
+const electron = require('electron');
 const path = require('path');
 
 // // Global variable for storing python shell instance
@@ -24,7 +25,7 @@ ipcRenderer.send('BACKGROUND_READY');
  */
 function initShell(data){
     const { args } = data;
-    let pyshell = new PythonShell(path.join(__dirname, '/../python_script/main.py'), {
+    let pyshell = new PythonShell(path.join(electron.remote.app.getAppPath(), '/../python_script/main.py'), {
         pythonPath: 'python',
         args: args,
         mode:'text',

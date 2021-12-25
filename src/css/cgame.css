@@ -64,7 +64,7 @@ button:active{
     font-family: fantasy;
     width: 52%;
     height: 60%;
-    opacity: 80%;
+    opacity: 0.8;
 }
 .home-menu-button-link{
     display: block;
@@ -74,12 +74,12 @@ button:active{
 .home-menu-button:hover{
     background-color: rgb(31, 80, 12);
     color:white;
-    opacity: 100%;
+    opacity: 1;
     transition: 0.5s;
 }
 .home-menu-button-link:hover{
     color: white;
-    opacity: 100%;
+    opacity: 1;
     transition: 0.5s;
 }
 .game-title{
@@ -245,10 +245,10 @@ height: 100% !important;
     bottom: -2px;
     z-index: 9;
     background-color: gainsboro;
-    opacity: 30%;
+    opacity: 0.3;
 }
 .run-code-button-container:hover{
-    opacity: 90%;
+    opacity: 0.9;
     transition: 0.3s;
 }
 .run-code-button{
@@ -322,7 +322,7 @@ height: 100% !important;
     left: 61vw;
     top: 100px;
     background-color: #868585;
-    opacity: 80%;
+    opacity: 0.8;
     z-index: 10;
     text-align: center;
 }
@@ -402,7 +402,7 @@ height: 100% !important;
     height: 100%;
     top: 0;
     background-color: #d4dfc8;
-    opacity: 60%;
+    opacity: 0.6;
     z-index: 9;
 }
 .menu-content{

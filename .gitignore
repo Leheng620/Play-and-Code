@@ -1,5 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
 playandcode.json
+__pycache__
+
+# Ignore code_runer.py
+code_runner.py
+
 # dependencies
 /node_modules
 /.pnp
@@ -10,6 +16,7 @@ playandcode.json
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
